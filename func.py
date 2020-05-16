@@ -24,7 +24,7 @@ def handler(ctx, data: io.BytesIO = None):
             "priority": "high",
             #   'data': dataPayLoad,
         }
-        response = requests.post(
+        requests.post(
             "https://fcm.googleapis.com/fcm/send",
             headers=headers,
             data=json.dumps(body),
