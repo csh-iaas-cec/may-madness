@@ -23,12 +23,11 @@ def handler(ctx, data: io.BytesIO = None):
             },
             "to": deviceToken,
             "priority": "high",
-            #   'data': dataPayLoad,
         }
         res = requests.post(
             "https://fcm.googleapis.com/fcm/send",
             headers=headers,
-            data=json.dumps(body),
+            data=json.dumps(to_body),
         )
         logging.info(res.json())
 
