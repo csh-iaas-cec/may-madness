@@ -10,7 +10,7 @@ def handler(ctx, data: io.BytesIO = None):
     try:
         body = json.loads(data.getvalue())
         deviceToken = body.get("name")
-        print(deviceToken)
+        logging.info(deviceToken)
         serverToken = "AAAAOSxh1Ys:APA91bE1Q4hdRXG7KKXvMmdiMSb1aM5CbJS2Fw3RG9-yTrCjs8ta7JbCg_Gf55YzJkkFrABg53NezTNko0CXaqW2oVvOJEyF2DE7zUoCwm2KubTp6mFJjHRbgoPNxG4pvNruFEn_y0iC"
         headers = {
             "Content-Type": "application/json",
@@ -30,7 +30,7 @@ def handler(ctx, data: io.BytesIO = None):
             headers=headers,
             data=json.dumps(body),
         )
-        print(res.json())
+        logging.info(res.json())
 
     except (Exception, ValueError) as ex:
         logging.getLogger().info("error parsing json payload: " + str(ex))
